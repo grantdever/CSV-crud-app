@@ -1,11 +1,11 @@
 export class UpdateUserDto {
-  id: number;
-  firstName: string;
-  lastName: string;
+  id: string;
+  firstname: string;
+  lastname: string;
   address: string;
   city: string;
   state: string;
-  userNumber: number;
+  usernumber: number;
 }
 
 export default UpdateUserDto;

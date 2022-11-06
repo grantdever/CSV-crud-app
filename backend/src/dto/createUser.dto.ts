@@ -1,10 +1,10 @@
 export class CreateUserDto {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   address: string;
   city: string;
   state: string;
-  userNumber: number;
+  usernumber: number;
 }
 
 export default CreateUserDto;

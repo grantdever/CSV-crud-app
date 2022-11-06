@@ -1,4 +1,9 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import CreateUserDto from './dto/createUser.dto';
@@ -12,12 +17,12 @@ export class UsersService {
   ) {}
 
   //find all
-  getAllUsers() {
+  getAllUsers(): Promise<User[]> {
     return this.userRepository.find();
   }
 
   //find by id
-  async getUserById(id: number) {
+  async getUserById(id: string): Promise<User> {
     const user = await this.userRepository.findOneBy({ id: id });
 
     if (user) {
@@ -28,15 +33,23 @@ export class UsersService {
   }
 
   //create
-  async createNewUser(user: CreateUserDto) {
-    const newUser = await this.userRepository.create(user);
-    await this.userRepository.save(newUser);
+  async createNewUser(user: CreateUserDto): Promise<User> {
+    console.log('create is called');
+    console.log(user);
+    const newUser = this.userRepository.create(user);
+    console.log(newUser);
+    const savedUser = await this.userRepository.save(newUser);
+    console.log(savedUser);
 
-    return newUser;
+    if (!savedUser) {
+      throw new InternalServerErrorException('Problem saving the user');
+    }
+
+    return savedUser;
   }
 
   //update
-  async updateUserDto(id: number, post: UpdateUserDto) {
+  async updateUser(id: string, post: UpdateUserDto): Promise<User> {
     await this.userRepository.update(id, post);
     const updatedUser = await this.userRepository.findOneBy({ id: id });
     if (updatedUser) {
