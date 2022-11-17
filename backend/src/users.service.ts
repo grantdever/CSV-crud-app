@@ -9,6 +9,8 @@ import { Repository } from 'typeorm';
 import CreateUserDto from './dto/createUser.dto';
 import User from './entity/user.entity';
 import UpdateUserDto from './dto/updateUser.dto';
+import Group from './entity/group.identity';
+import { QueryBuilder } from 'typeorm';
 
 @Injectable()
 export class UsersService {
@@ -16,15 +18,21 @@ export class UsersService {
     @InjectRepository(User) private userRepository: Repository<User>,
   ) {}
 
-  //find all
-  getAllUsers(): Promise<User[]> {
-    return this.userRepository.find();
+  //find all users
+  async getAllUsers(): Promise<User[]> {
+    return this.userRepository.find({ relations: { group: true } });
   }
 
-  //find by id
-  async getUserById(id: string): Promise<User> {
-    const user = await this.userRepository.findOneBy({ id: id });
-
+  //find user by id
+  async getUserById(id: number): Promise<User> {
+    const user = await this.userRepository.findOne({
+      relations: {
+        group: true,
+      },
+      where: {
+        id,
+      },
+    });
     if (user) {
       return user;
     }
@@ -32,14 +40,10 @@ export class UsersService {
     throw new HttpException('User not found', HttpStatus.NOT_FOUND);
   }
 
-  //create
+  //create user(s)
   async createNewUser(user: CreateUserDto): Promise<User> {
-    console.log('create is called');
-    console.log(user);
     const newUser = this.userRepository.create(user);
-    console.log(newUser);
     const savedUser = await this.userRepository.save(newUser);
-    console.log(savedUser);
 
     if (!savedUser) {
       throw new InternalServerErrorException('Problem saving the user');
@@ -48,8 +52,8 @@ export class UsersService {
     return savedUser;
   }
 
-  //update
-  async updateUser(id: string, post: UpdateUserDto): Promise<User> {
+  //update one user
+  async updateUser(id: number, post: UpdateUserDto): Promise<User> {
     await this.userRepository.update(id, post);
     const updatedUser = await this.userRepository.findOneBy({ id: id });
     if (updatedUser) {
@@ -59,7 +63,7 @@ export class UsersService {
     throw new HttpException('User not found', HttpStatus.NOT_FOUND);
   }
 
-  //delete
+  //delete one user
   async deleteUser(id: number) {
     const deletedUser = await this.userRepository.delete(id);
     if (!deletedUser.affected) {

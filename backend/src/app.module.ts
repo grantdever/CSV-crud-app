@@ -4,6 +4,11 @@ import { UsersModule } from './users.module';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 import { DatabaseModule } from './database.module';
+import { GroupModule } from './group.module';
+import { GroupController } from './group.controller';
+import { UsersController } from './users.controller';
+import { GroupService } from './group.service';
+import { UsersService } from './users.service';
 
 @Module({
   imports: [
@@ -20,6 +25,7 @@ import { DatabaseModule } from './database.module';
     }),
     DatabaseModule,
     UsersModule,
+    GroupModule,
   ],
   controllers: [],
   providers: [],

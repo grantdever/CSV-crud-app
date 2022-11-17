@@ -1,9 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, JoinTable } from 'typeorm';
+import Group from './group.identity';
 
 @Entity()
 class User {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column()
   firstname: string;
@@ -22,6 +23,9 @@ class User {
 
   @Column()
   usernumber: number;
+
+  @ManyToOne(() => Group, (group) => group.users, { nullable: true })
+  group: Group;
 }
 
 export default User;

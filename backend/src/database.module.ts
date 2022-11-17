@@ -15,11 +15,15 @@ import { join } from 'path';
         username: configService.get('DB_USER'),
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_NAME'),
-        entities: [join(__dirname, '**', '*.entity.{ts,js}')],
+        entities: [join(__dirname, '**', '*.entity.ts')],
         // ssl: {
         //   rejectUnauthorized: false,
         // },
-        synchronize: false, //should be false at production!
+        //ensures that the database and entity are synchronized
+        //should be set to false during production!!!
+        synchronize: false,
+        logging: true,
+        autoLoadEntities: true,
       }),
     }),
   ],

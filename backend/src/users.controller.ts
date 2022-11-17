@@ -15,7 +15,7 @@ export class UsersController {
 
   //get user by id
   @Get(':id')
-  getUserById(@Param('id') id: string) {
+  getUserById(@Param('id') id: number) {
     return this.usersService.getUserById(id);
   }
 
@@ -27,13 +27,13 @@ export class UsersController {
 
   //update user
   @Patch(':id')
-  async updateUser(@Param('id') id: string, @Body() user: UpdateUserDto) {
+  async updateUser(@Param('id') id: number, @Body() user: UpdateUserDto) {
     return this.usersService.updateUser(id, user);
   }
 
   //delete user
   @Delete(':id')
-  async deleteUser(@Param('id') id: string) {
+  async deleteUser(@Param('id') id: number) {
     return this.usersService.deleteUser(Number(id));
   }
 }
