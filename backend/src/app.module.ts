@@ -5,11 +5,9 @@ import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 import { DatabaseModule } from './database.module';
 import { GroupModule } from './group.module';
-import { GroupController } from './group.controller';
-import { UsersController } from './users.controller';
-import { GroupService } from './group.service';
-import { UsersService } from './users.service';
 
+// configuration for my database and import all necessary modules
+//validated using Joi
 @Module({
   imports: [
     ConfigModule.forRoot({

@@ -19,6 +19,7 @@ export class UsersService {
   ) {}
 
   //find all users
+  // find and findOne allow you to pass in these parameters to get data from both tables in your json
   async getAllUsers(): Promise<User[]> {
     return this.userRepository.find({ relations: { group: true } });
   }

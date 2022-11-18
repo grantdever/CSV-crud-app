@@ -1,8 +1,6 @@
 //config.js
 
-const dotenv = require('dotenv');
-dotenv.config();
-module.exports = {
-  db_username: process.env.DB_USERNAME,
-  db_password: process.env.DB_PASSWORD,
-};
+import { config } from 'dotenv';
+config();
+export const db_username = process.env.DB_USERNAME;
+export const db_password = process.env.DB_PASSWORD;

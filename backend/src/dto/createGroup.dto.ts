@@ -1,9 +1,8 @@
-import User from '../entity/user.entity';
-
+// describes the data format for a new group
+// dto = data transfer object
 export class CreateGroupDto {
   name: string;
   symbol: string;
-  // users: User[];
 }
 
 export default CreateGroupDto;
