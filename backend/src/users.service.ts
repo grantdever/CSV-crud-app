@@ -9,8 +9,6 @@ import { Repository } from 'typeorm';
 import CreateUserDto from './dto/createUser.dto';
 import User from './entity/user.entity';
 import UpdateUserDto from './dto/updateUser.dto';
-import Group from './entity/group.identity';
-import { QueryBuilder } from 'typeorm';
 
 @Injectable()
 export class UsersService {
