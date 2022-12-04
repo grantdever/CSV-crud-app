@@ -8,6 +8,9 @@ import { UploadComponent } from './upload/upload.component';
 import { ViewComponent } from './view/view.component';
 import { ViewGroupComponent } from './view-group/view-group.component';
 import { ViewUserComponent } from './view-user/view-user.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViewAllUserComponent } from './view-alluser/view-alluser.component';
+import { ViewAllGroupComponent } from './view-allgroup/view-allgroup.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +19,15 @@ import { ViewUserComponent } from './view-user/view-user.component';
     UploadComponent,
     ViewComponent,
     ViewGroupComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    ViewAllUserComponent,
+    ViewAllGroupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

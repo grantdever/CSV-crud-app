@@ -4,6 +4,7 @@ table, th, td {
     text-align: left;
     border-bottom: 1px solid #ddd;
   }
+tr:hover {background-color: powderblue;}
 th {
     background-color: powderblue;
 }

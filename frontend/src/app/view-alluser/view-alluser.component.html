@@ -1,6 +1,10 @@
-<ng-template [ngIf]="user.firstname != undefined"><table>
+<h2>View all users:</h2>
+<br>
+
+<table>
     <thead>
         <tr>
+            <th>User ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Address</th>
@@ -11,7 +15,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let user of users$">
+            <td (click)="linkToUser(user.id)" class="clickable">{{user.id}}</td>
             <td>{{user.firstname}}</td>
             <td>{{user.lastname}}</td>
             <td>{{user.address}}</td>
@@ -21,4 +26,4 @@
             <td>{{user.group.symbol}}</td>
         </tr>
     </tbody>
-</table></ng-template>
+</table>

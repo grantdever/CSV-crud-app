@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ViewService } from './view.service';
 
 @Component({
@@ -11,7 +10,7 @@ export class ViewComponent implements OnInit {
 
   users$: any;
 
-  constructor(private viewService: ViewService) { }
+  constructor(private viewService: ViewService ) {}
 
   ngOnInit(): void {
     this.viewService.getUsers().subscribe((users) => {

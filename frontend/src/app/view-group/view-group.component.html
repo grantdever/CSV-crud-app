@@ -1,1 +1,31 @@
-<p>view-group works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>Group Name</th>
+            <th>Group Symbol</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{group.name}}</td>
+            <td>{{group.symbol}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template [ngIf]="group.users[0].firstname != undefined"><table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of group.users">
+            <td (click)="linkToUser(user.id)" class="clickable">{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.city}}</td>
+        </tr>
+    </tbody>
+</table>

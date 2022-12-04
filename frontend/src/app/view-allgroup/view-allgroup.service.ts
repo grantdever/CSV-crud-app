@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ViewService {
+export class ViewAllGroupService {
 
   constructor(private httpClient: HttpClient) { }
   
-  getUsers() {
-    return this.httpClient.get('http://localhost:3000/users');
+  getGroups() {
+    return this.httpClient.get('http://localhost:3000/group');
   }
 }

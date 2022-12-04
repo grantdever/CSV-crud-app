@@ -1,0 +1,16 @@
+<h2>View all groups:</h2>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Group Name</th>
+            <th>Group Symbol</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let group of groups$">
+            <td (click)="linkToGroup(group.id)" class="clickable">{{group.name}}</td>
+            <td>{{group.symbol}}</td>
+        </tr>
+    </tbody>
+</table>
