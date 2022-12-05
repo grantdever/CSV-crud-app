@@ -21,6 +21,8 @@
     "@ng-bootstrap/ng-bootstrap": "^13.1.1",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.3",
+    "csv-file-validator": "^2.0.0",
+    "ngx-csv-parser": "^1.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

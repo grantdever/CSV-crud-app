@@ -11,6 +11,7 @@ import { ViewUserComponent } from './view-user/view-user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewAllUserComponent } from './view-alluser/view-alluser.component';
 import { ViewAllGroupComponent } from './view-allgroup/view-allgroup.component';
+import { NgxCsvParserModule } from 'ngx-csv-parser';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ViewAllGroupComponent } from './view-allgroup/view-allgroup.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    NgxCsvParserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
