@@ -9,10 +9,9 @@ export class UploadService {
 
   constructor(private httpClient: HttpClient) { }
   
+//   should have an error if not posted successfully
   postUsers(users: any) {
     const body = users;
-    console.log('this is the body');
-    console.log(body);
     this.httpClient.post(this.postEndpoint, body).subscribe((result) => {
         alert("users saved successfully");
     });

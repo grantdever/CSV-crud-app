@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewService } from './view.service';
 
 @Component({
   selector: 'app-view',
@@ -8,14 +7,8 @@ import { ViewService } from './view.service';
 })
 export class ViewComponent implements OnInit {
 
-  users$: any;
+  constructor() {}
 
-  constructor(private viewService: ViewService ) {}
-
-  ngOnInit(): void {
-    this.viewService.getUsers().subscribe((users) => {
-      this.users$ = users;
-    })
-  }
+  ngOnInit(): void {}
 
 }

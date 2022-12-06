@@ -1,15 +1,16 @@
-<p><strong>Welcome to my first CRUD application!</strong></p>
-<p>The upload page <a routerLink="/upload" routerLinkActive="active" ariaCurrentWhenActive="page">upload</a> will:</p>
+<h2>Welcome to my first CRUD application!</h2>
+<p>The <a routerLink="/upload" routerLinkActive="active" ariaCurrentWhenActive="page">upload page</a>:</p>
 <ul>
-    <li>allow the user to upload an .csv file</li>
-    <li>validate that it is an .csv</li>
-    <li>return any errors</li>
+    <li>enables users to upload an .csv file</li>
+    <li>validates that they are uploading an .csv</li>
+    <li>validates that the headers are correct</li>
 </ul>
-<p>If the .csv file is properly formatted for my application:</p>
+<p>If the .csv file contains the proper headers and the db is configured:</p>
 <ul>
-    <li>this data will be converted to JSON</li>
-    <li>added to my database</li>
-    <li>rendered in the appropriate frontend views.</li>
+    <li>this data will stored in a variable</li>
+    <li>this data will be passed into a POST end point and the data will be added to the database</li>
+    <li>the user will be notified that this has successfully occurred</li>
+    <li>the user can navigate to the appropriate routes to view this data</li>
 </ul>
 <p>This is my first full stack project. It is built with: Angular, PostgreSQL, TypeORM, and NestJS.</p>
 <p>Let&apos;s test this out:</p>
