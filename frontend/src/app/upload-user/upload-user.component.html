@@ -17,8 +17,9 @@
         <input type="file" #fileImportInput name="File Upload" id="csvFileUpload" (change)="fileChangeListener($event)"
           accept=".csv" />
     </div>
+    <br>
 
-    <div class="csv-result-table">
+    <div class="table">
 
         <table>
           <thead>
@@ -28,14 +29,11 @@
               <th>Address</th>
               <th>City</th>
               <th>State</th>
-              <th>Usernumber</th>
               <th>GroupId</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let csvData of csvRecords;let i = index;">
-      
-              <td>{{i+1}}</td>
+            <tr *ngFor="let csvData of csvRecords">
               <td>
                 <span>{{csvData.firstname}}</span>
               </td>

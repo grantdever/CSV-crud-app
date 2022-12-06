@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ViewAllGroupService } from './view-allgroup.service';
 
@@ -9,15 +8,15 @@ import { ViewAllGroupService } from './view-allgroup.service';
 })
 export class ViewAllGroupComponent implements OnInit {
 
-  groups$: any;
+  groups: any; 
 
-  constructor(private viewAllGroupService: ViewAllGroupService) { }
+  constructor(private viewAllGroupService: ViewAllGroupService) {
+   }
 
   ngOnInit(): void {
     this.viewAllGroupService.getGroups().subscribe((data) => {
-      this.groups$ = data;
+      this.groups = data;
     })
-
   }
 
   linkToGroup(id: string) {

@@ -70,7 +70,7 @@ validateHeader(arr: any): any {
       if(arr[i] != headers[i]){
         return false;
       }
-      }
-      return true;
     }
+    return true;
+  }
 }

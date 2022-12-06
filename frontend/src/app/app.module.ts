@@ -33,7 +33,7 @@ import { UploadUserComponent } from './upload-user/upload-user.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    NgxCsvParserModule
+    NgxCsvParserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
