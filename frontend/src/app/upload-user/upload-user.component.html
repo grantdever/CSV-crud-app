@@ -1,0 +1,64 @@
+<h2>Let's upload a user file!</h2>
+<body>
+    <p>This app is designed to manage a set of users, who each may belong to one group.</p>
+    <p>By uploading an .csv below, you can add multiple users to the database.</p>
+    <p>A proper .csv will contain a set of users who should have data which corresponds with these headers:</p>
+    <ul>
+        <li>'firstname'</li>
+        <li>'lastname'</li>
+        <li>'address'</li>
+        <li>'city'</li>
+        <li>'state', ie. NY</li>
+        <li>'group', ie. '1', which corresponds with group 1 in the group database</li>
+    </ul>
+    <p>If you submit a .csv with improper headers, the data will not be posted to the backend. Otherwise, your data will be accepted. This application is run on your own local database and only has access to data that you give it access to.</p>
+    <div class="csv-file-chooser-section">
+
+        <input type="file" #fileImportInput name="File Upload" id="csvFileUpload" (change)="fileChangeListener($event)"
+          accept=".csv" />
+    </div>
+
+    <div class="csv-result-table">
+
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Usernumber</th>
+              <th>GroupId</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let csvData of csvRecords;let i = index;">
+      
+              <td>{{i+1}}</td>
+              <td>
+                <span>{{csvData.firstname}}</span>
+              </td>
+              <td>
+                <span>{{csvData.lastname}}</span>
+              </td>
+              <td>
+                <span>{{csvData.address}}</span>
+              </td>
+              <td>
+                <span>{{csvData.city}}</span>
+              </td>
+              <td>
+                <span>{{csvData.state}}</span>
+              </td>
+              <td>
+                <span>{{csvData.groupId}}</span>
+              </td>
+      
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>
+</body>
+

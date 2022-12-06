@@ -1,0 +1,44 @@
+<h2>Let's upload a group file!</h2>
+<body>
+    <p>This app is designed to manage a set of users, who each may belong to one group.</p>
+    <p>By uploading an .csv below, you can add a group (or multiple) to the database.</p>
+    <p>A proper .csv will contain a group, or series of group, with data which corresponds with these headers:</p>
+    <ul>
+        <li>'name'</li>
+        <li>'symbol'</li>
+<!-- add a group, then add users which have an id which corresponds to the groupid -->
+<!-- will this update in the frontend? -->
+    </ul>
+    <p>If you submit a .csv with improper headers, the data will not be posted to the backend. Otherwise, your data will be accepted. This application is run on your own local database and only has access to data that you give it access to.</p>
+    <div class="csv-file-chooser-section">
+
+        <input type="file" #fileImportInput name="File Upload" id="csvFileUpload" (change)="fileChangeListener($event)"
+          accept=".csv" />
+    </div>
+
+    <div class="csv-result-table">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Symbol</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let csvData of csvRecords;let i = index;">
+      
+              <td>{{i+1}}</td>
+              <td>
+                <span>{{csvData.name}}</span>
+              </td>
+              <td>
+                <span>{{csvData.symbol}}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>
+</body>
+
